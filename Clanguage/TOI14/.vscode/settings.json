@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.exe": "diff",
+        "iostream": "cpp"
+    }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+    Update log:
+    1.0.0   :   1.Add mode "Write yourself" in gamemode 1
+                2.Add mode "Select Hiragana" in gamemode 2
+                3.Add mode "Select Romaji" in gamemode 3
+                4.Public website with local html (download in google drive)
+
+    1.0.1   :   1.Add gamemode 4 "Hiragana chart"
+                2.Add console log that shows Action and answer
+                3.Public website with 000webhost (Now can play everywhere!)
+    
+    1.0.2   :   1.Delete mode "Write yourself"
+                2.Change gamemode 1 "Write yourself" to "Hiragana chart"
+                3.Add gamemode "Input Romaji"
+                4.change gamemode 4 "Hiragana chart" to "Input Romaji"
+
+    1.0.2.1n :  1.Open text box in gamemode 4 for mobile player can play
+-->
+<html>
+    <style>
+        .center {
+            text-align: center
+        }   
+        .disable {
+            display:none;
+        }
+        .choice {
+            display: inline;
+        }
+    </style>
+    <head"><title>Japan Learning by Nutnai</title><meta charset="utf-8" /></head>
+    <script src="data/sc.js"></script>
+    <script src="data/wanakana.min.js"></script>
+    <body>
+        <h1 class="center">Japan Learning by Nutnai</h1>
+        <p class="center">v 1.0.2.1n</p>
+        <div class="center">
+            Gamemode : <select name="gameMode" id="gameMode" onchange ="selectMode()" >
+                <option value="1">Hiragana chart</option>
+                <option value="2">Select Hiragana</option>
+                <option value="3">Select Romaji</option>
+                <option value="4">Input Romaji</option>
+            </select>
+        </div>
+        <p><br><br><br><br><br></p>
+        <div id="gameMode1" class="">
+            <!--  
+            <form class="center" id="timeInput">
+                Time per round : <input type="text" style="font-size: large; inline-size: 3%;"> second
+                <br><br>
+                Number of questions : <input type="text" style="font-size: large; inline-size: 3%;"> questions
+                <br><br>
+                <input id="btst1" type="button" onclick="PlayMode1()" style="font-size: large;" value="Start">
+            </form> 
+            <br><br><br><br>
+            <h1 id="ans" class="center">準備はできたか?</h1>
+            <h1 id="show1" class="center">Are you ready?</h1>
+            <br><br><br><br>
+            <h1 name="timeShow" class="center">00:00</h1>
+            -->
+            <div class="center">
+                <img src="data/Hiragana.jpg" alt="Hiragana chart">
+            </div>
+        </div>
+        <div id="gameMode2" class="disable">
+            <div class="center">
+                Difficult : <select name="difficult" id="difficult">
+                    <option value="1">Easy : 3 choice</option>
+                    <option value="2">Nomal : 4 choice</option>
+                    <option value="3">Hard : 5 choice</option>
+                </select>
+                <br><br>
+                Round : <select name="maxRound2" id="maxRound2">
+                    <option value="1">Quick : 10 questions</option>
+                    <option value="2">Normal : 20 questions</option>
+                    <option value="3">Long : 30 questions</option>
+                </select>
+                <br><br>
+                <input id="btst2" class="" type="button" onclick="PlayMode2()" style="font-size: large;" value="Start">
+                <input id="gameMode3" class="" type="button" onclick="PlayMode3()" style="font-size: large;" value="Start">
+                <br><br><br><br>
+            </div>
+            <h1 id="show2" class="center">準備はできたか?</h1>
+            <br><br>
+            <div id="select2" class="center">
+                <h1 id="choice2.1" class="center choice" onclick="run2(1)"></h1>
+                <p class="center choice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <h1 id="choice2.2" class="center choice" onclick="run2(2)"></h1>
+                <p class="center choice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <h1 id="choice2.3" class="center choice" onclick="run2(3)">Are you ready?</h1>
+                <p class="center choice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <h1 id="choice2.4" class="center choice" onclick="run2(4)"></h1>
+                <p class="center choice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <h1 id="choice2.5" class="center choice" onclick="run2(5)"></h1>
+            </div>
+            <br><br><br><br>
+            <h1 name="timeShow" class="center">00:00</h1>
+        </div>
+        <div id="gameMode4" class="disable">
+            <div class="center">
+                </select>
+                Round : <select name="maxRound4" id="maxRound4">
+                    <option value="1">Quick : 10 questions</option>
+                    <option value="2">Normal : 20 questions</option>
+                    <option value="3">Long : 30 questions</option>
+                </select>
+                <br><br>
+                <input id="btst4" type="button" onclick="PlayMode4()" style="font-size: large;" value="Start">
+            
+            <br><br><br><br><br>
+            <h1 id="show4" class="center">準備はできたか?</h1>
+            <br><br>
+            <h1 id="hide4" class="">Are you ready?</h1>
+            <form onsubmit="return false">
+                <input id="input4" type="text" style="font-size: large; text-align:center;"class="disable" onsubmit="run4()">
+            </form>
+            <br><br><br>
+            </div>
+            <h1 name="timeShow" class="center">00:00</h1>
+        </div>
+    </body>
+</html>
