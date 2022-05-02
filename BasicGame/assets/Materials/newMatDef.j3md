@@ -1,0 +1,44 @@
+MaterialDef Simple {
+    MaterialParameters {
+        Color Color
+    }
+    Technique {
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+        Material shiny bumpy rock : Common/MatDefs/Light/Lighting.j3md {
+             MaterialParameters {
+                 Shininess: 8.0
+                 NormalMap: Textures/bump_rock_normal.png
+                 UseMaterialColors : true
+                 Ambient  : 0.0 0.0 0.0 1.0
+                 Diffuse  : 1.0 1.0 1.0 1.0
+                 Specular : 0.0 0.0 0.0 1.0
+             }
+        }
+        VertexShaderNodes {
+            ShaderNode CommonVert {
+                Definition : CommonVert : Common/MatDefs/ShaderNodes/Common/CommonVert.j3sn
+                InputMappings {
+                    worldViewProjectionMatrix = WorldParam.WorldViewProjectionMatrix
+                    modelPosition = Global.position.xyz
+                }
+                OutputMappings {
+                    Global.position = projPosition
+                }
+            }
+        }
+        FragmentShaderNodes {
+            ShaderNode ColorMult {
+                Definition : ColorMult : Common/MatDefs/ShaderNodes/Basic/ColorMult.j3sn
+                InputMappings {
+                    color1 = MatParam.Color
+                    color2 = Global.color
+                }
+                OutputMappings {
+                    Global.color = outColor
+                }
+            }
+        }
+    }
+}
