@@ -326,7 +326,6 @@ public class Main extends SimpleApplication {
         this.flyCam.setEnabled(specter);
         this.setDisplayFps(specter);  
         this.setDisplayStatView(specter);
-        
         /*bug
         if (specter){
             music.pause();
